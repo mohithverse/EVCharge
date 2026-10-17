@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="EV charging station usage analysis dashboard" />
+  <title>ChargeScope | EV Analytics</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#overview" data-view="overview"><span class="brand-mark">↯</span><span>Charge<span>Scope</span></span></a>
+      <p class="workspace-label">ANALYSIS WORKSPACE</p>
+      <nav class="nav-list" aria-label="Project analysis">
+        <button class="nav-item active" data-view="overview"><span>⊞</span> Overview</button>
+        <button class="nav-item" data-view="cleaning"><span>✦</span> Data cleaning</button>
+        <button class="nav-item" data-view="eda"><span>◌</span> Exploratory data analysis</button>
+        <button class="nav-item" data-view="regression"><span>⌁</span> Linear regression</button>
+        <button class="nav-item" data-view="gradient"><span>∿</span> Gradient descent</button>
+        <button class="nav-item" data-view="tree-models"><span>⌘</span> Tree models</button>
+      </nav>
+      <div class="side-status"><span class="status-dot"></span><div><strong>Pipeline complete</strong><small>Last run: August 2026</small></div></div>
+    </aside>
+    <main>
+      <header class="topbar">
+        <button class="menu-button" id="menuButton" aria-label="Open navigation">☰</button>
+        <div><p class="eyebrow">EV CHARGING STATION USAGE</p><h1 id="pageTitle">Project overview</h1></div>
+        <div class="top-actions"><span class="data-pill"><i></i> Clean dataset</span><button class="icon-button" id="themeButton" aria-label="Toggle theme">☾</button></div>
+      </header>
+      <div class="content">
+        <section class="view active" id="overview">
+          <div class="hero-card"><div><p class="eyebrow accent">DATA STORY · 2018–2020</p><h2>Powering insights from <em>259K+</em><br />charging sessions.</h2><p>Explore the full EV charging workflow—from preparing raw records to evaluating predictive models.</p><div class="hero-actions"><button class="primary-button" data-view="eda">Explore findings <span>→</span></button><button class="text-button" data-view="cleaning">View workflow</button></div></div><div class="hero-orb"><div class="orb-core">⚡<small>ENERGY<br />ANALYTICS</small></div></div></div>
+          <div class="metric-grid">
+            <article class="metric-card"><span class="metric-icon mint">⌁</span><p>Charging sessions</p><strong>259,411</strong><small>analysis-ready records</small></article>
+            <article class="metric-card"><span class="metric-icon purple">ϟ</span><p>Energy delivered</p><strong>2.22M <b>kWh</b></strong><small>across all sessions</small></article>
+            <article class="metric-card"><span class="metric-icon orange">◷</span><p>Model accuracy</p><strong>78.3<b>%</b></strong><small>best model R² score</small></article>
+            <article class="metric-card"><span class="metric-icon blue">◉</span><p>Analysis assets</p><strong>10</strong><small>EDA charts generated</small></article>
+          </div>
+          <div class="section-heading"><div><p class="eyebrow">PROJECT MAP</p><h2>Follow the analysis</h2></div><p>Choose a stage to view details and outputs.</p></div>
+          <div class="journey-grid">
+            <button class="journey-card" data-view="cleaning"><span>01</span><div class="journey-icon">✦</div><h3>Data cleaning</h3><p>Standardize, validate, enrich and prepare raw data.</p><i>Open report →</i></button>
+            <button class="journey-card" data-view="eda"><span>02</span><div class="journey-icon">◌</div><h3>EDA</h3><p>Discover usage patterns, energy trends and station behavior.</p><i>Open report →</i></button>
+            <button class="journey-card" data-view="regression"><span>03</span><div class="journey-icon">⌁</div><h3>Linear regression</h3><p>Predict session energy with engineered features.</p><i>Open report →</i></button>
+            <button class="journey-card" data-view="gradient"><span>04</span><div class="journey-icon">∿</div><h3>Gradient descent</h3><p>See an optimizer learn the energy relationship.</p><i>Open report →</i></button>
+            <button class="journey-card" data-view="tree-models"><span>05</span><div class="journey-icon">⌘</div><h3>Tree models</h3><p>Compare decision trees, forests and boosting methods.</p><i>Open report →</i></button>
+          </div>
+        </section>
+
+        <section class="view" id="cleaning">
+          <div class="report-hero"><div><p class="eyebrow accent">STAGE 01 · DATA PREPARATION</p><h2>Clean data. <em>Reliable decisions.</em></h2><p>The raw charging-session data was transformed into a consistent, model-ready dataset while preserving valid observations.</p></div><div class="score-badge"><strong>99.99%</strong><span>records retained</span></div></div>
+          <div class="metric-grid three"><article class="metric-card"><p>Raw records</p><strong>259,415</strong><small>input CSV rows</small></article><article class="metric-card"><p>Duplicates removed</p><strong>4</strong><small>exact duplicate rows</small></article><article class="metric-card"><p>Prepared features</p><strong>+5</strong><small>time & duration variables</small></article></div>
+          <div class="split-grid"><article class="panel"><div class="panel-head"><div><p class="eyebrow">TRANSFORMATION LOG</p><h3>Cleaning workflow</h3></div><span class="done-label">✓ Complete</span></div><ol class="workflow"><li><b>01</b><div><strong>Normalize structure</strong><p>Trimmed column names and replaced blank strings with missing values.</p></div></li><li><b>02</b><div><strong>Remove duplicate records</strong><p>Detected and removed 4 duplicate charging-session rows.</p></div></li><li><b>03</b><div><strong>Correct data types</strong><p>Parsed dates, durations, numeric measures and categorical labels.</p></div></li><li><b>04</b><div><strong>Resolve missing & invalid values</strong><p>Filled transaction dates from end dates; assigned Unknown to categories; removed negative values.</p></div></li><li><b>05</b><div><strong>Engineer analysis features</strong><p>Created duration in minutes, year, month, day, hour and day-of-week fields.</p></div></li></ol></article><article class="panel emphasis-panel"><p class="eyebrow">OUTPUT</p><h3>EVChargingStationUsage_cleaned.csv</h3><p class="muted">The cleaned file is used as the single source for EDA and model training.</p><div class="file-stat"><span>Rows</span><strong>259,411</strong></div><div class="file-stat"><span>Columns</span><strong>40</strong></div><div class="file-stat"><span>Duplicate rows</span><strong>0</strong></div><div class="data-quality"><span>Quality checks passed</span><div><i></i><i></i><i></i><i></i><i></i></div></div></article></div>
+        </section>
+
+        <section class="view" id="eda">
+          <div class="report-hero compact"><div><p class="eyebrow accent">STAGE 02 · EXPLORATORY DATA ANALYSIS</p><h2>See how charging <em>actually happens.</em></h2><p>Usage, energy and station patterns from the cleaned EV charging dataset.</p></div><button class="ghost-button" id="shuffleCharts">↻ Refresh gallery</button></div>
+          <div class="insight-row"><article><span>PEAK BEHAVIOR</span><strong>Daytime</strong><p>Session activity is distributed by hour and day.</p></article><article><span>ENERGY SIGNAL</span><strong>2.22M kWh</strong><p>Total charging energy analyzed.</p></article><article><span>KEY RELATIONSHIP</span><strong>Time ↗ Energy</strong><p>Charging time is a strong predictor of kWh.</p></article></div>
+          <div class="gallery-toolbar"><div><p class="eyebrow">VISUAL OUTPUTS</p><h3>Chart gallery</h3></div><div class="filter-tabs"><button class="active" data-filter="all">All</button><button data-filter="usage">Usage</button><button data-filter="energy">Energy</button><button data-filter="composition">Composition</button></div></div>
+          <div class="chart-gallery" id="chartGallery">
+            <figure data-category="energy"><img src="eda_outputs/energy_distribution.png" alt="Distribution of Energy Consumption" /><figcaption><span>ENERGY</span><strong>Energy distribution</strong></figcaption></figure>
+            <figure data-category="usage"><img src="eda_outputs/top_10_stations.png" alt="Top 10 Charging Stations" /><figcaption><span>USAGE</span><strong>Top 10 stations</strong></figcaption></figure>
+            <figure data-category="composition"><img src="eda_outputs/port_type_distribution.png" alt="Charging Port Type Distribution" /><figcaption><span>COMPOSITION</span><strong>Port type distribution</strong></figcaption></figure>
+            <figure data-category="composition"><img src="eda_outputs/plug_type_distribution.png" alt="Plug Type Distribution" /><figcaption><span>COMPOSITION</span><strong>Plug type distribution</strong></figcaption></figure>
+            <figure data-category="energy"><img src="eda_outputs/energy_by_port_type.png" alt="Average Energy by Port Type" /><figcaption><span>ENERGY</span><strong>Energy by port type</strong></figcaption></figure>
+            <figure data-category="usage"><img src="eda_outputs/sessions_by_hour.png" alt="Charging Sessions by Hour" /><figcaption><span>USAGE</span><strong>Sessions by hour</strong></figcaption></figure>
+            <figure data-category="usage"><img src="eda_outputs/sessions_by_day.png" alt="Charging Sessions by Day" /><figcaption><span>USAGE</span><strong>Sessions by day</strong></figcaption></figure>
+            <figure data-category="energy"><img src="eda_outputs/monthly_energy.png" alt="Monthly Energy Consumption" /><figcaption><span>ENERGY</span><strong>Monthly energy</strong></figcaption></figure>
+            <figure data-category="energy"><img src="eda_outputs/correlation_heatmap.png" alt="Correlation Heatmap" /><figcaption><span>ENERGY</span><strong>Correlation heatmap</strong></figcaption></figure>
+            <figure data-category="energy"><img src="eda_outputs/energy_vs_charging_time.png" alt="Energy vs Charging Time" /><figcaption><span>ENERGY</span><strong>Energy vs charging time</strong></figcaption></figure>
+          </div>
+        </section>
+
+        <section class="view" id="tree-models">
+          <div class="report-hero tree-hero"><div><p class="eyebrow accent">STAGE 05 · TREE-BASED REGRESSION</p><h2>Four ways to model <em>energy demand.</em></h2><p>Every model uses the same cleaned data, features and 80/20 train-test split so the comparison is fair.</p></div><div class="model-tag">TARGET<br /><strong>Energy (kWh)</strong></div></div>
+          <div class="metric-grid four" id="treeSummary"></div>
+          <div class="model-comparison panel"><div class="panel-head"><div><p class="eyebrow">TEST-SET COMPARISON</p><h3>Performance by model</h3></div><span class="done-label" id="modelStatus">Dataset results</span></div><div class="comparison-table-wrap"><table class="comparison-table"><thead><tr><th>Model</th><th>MAE ↓</th><th>RMSE ↓</th><th>R² ↑</th><th>What it learns</th></tr></thead><tbody id="modelTable"></tbody></table></div></div>
+          <div class="tree-output-grid"><article class="panel"><div class="panel-head"><div><p class="eyebrow">MODEL CONCEPTS</p><h3>How the algorithms differ</h3></div></div><div class="concept-list"><div><span>01</span><p><strong>Decision Tree</strong><small>One sequence of if/else splits. Easy to inspect, but deep trees can overfit.</small></p></div><div><span>02</span><p><strong>Random Forest</strong><small>Many trees trained on random samples, averaged to reduce variance.</small></p></div><div><span>03</span><p><strong>AdaBoost</strong><small>Small trees are trained sequentially, focusing on earlier mistakes.</small></p></div><div><span>04</span><p><strong>XGBoost</strong><small>Regularized gradient boosting designed for accurate, efficient tree ensembles.</small></p></div></div></article><article class="panel table-panel"><p class="eyebrow">SAMPLE PREDICTIONS</p><h3 id="sampleModelName">Random Forest Regression</h3><table><thead><tr><th>Actual kWh</th><th>Predicted kWh</th><th>Error</th></tr></thead><tbody id="samplePredictions"></tbody></table><p class="muted" id="xgboostNote"></p></article></div>
+        </section>
+
+        <section class="view" id="regression">
+          <div class="report-hero"><div><p class="eyebrow accent">STAGE 03 · PREDICTIVE MODEL</p><h2>Estimate energy with <em>confidence.</em></h2><p>A linear regression model predicts Energy (kWh) from session duration, hour, port type and plug type.</p></div><div class="model-tag">BEST MODEL<br /><strong>Linear Regression</strong></div></div>
+          <div class="metric-grid three"><article class="metric-card"><p>Mean absolute error</p><strong>2.515 <b>kWh</b></strong><small>lower is better</small></article><article class="metric-card"><p>Root mean squared error</p><strong>3.380 <b>kWh</b></strong><small>penalizes larger errors</small></article><article class="metric-card"><p>R² score</p><strong>0.783</strong><small>78.3% variance explained</small></article></div>
+          <div class="split-grid"><article class="panel"><div class="panel-head"><div><p class="eyebrow">MODEL DESIGN</p><h3>Feature pipeline</h3></div></div><div class="feature-flow"><div><span class="flow-num">01</span><strong>Input features</strong><p>Charging time · hour · port type · plug type</p></div><span>→</span><div><span class="flow-num">02</span><strong>Preparation</strong><p>Median/mode imputation · one-hot encoding</p></div><span>→</span><div><span class="flow-num">03</span><strong>Prediction</strong><p>Non-negative Energy (kWh) estimate</p></div></div><div class="train-split"><span>Training set <b>207,528 rows</b></span><i style="width:80%"></i><span>Test set <b>51,883 rows</b></span></div></article><article class="panel table-panel"><p class="eyebrow">SAMPLE PREDICTIONS</p><h3>Actual vs predicted</h3><table><thead><tr><th>Actual</th><th>Predicted</th><th>Difference</th></tr></thead><tbody><tr><td>37.182</td><td>28.183</td><td class="negative">−8.999</td></tr><tr><td>5.389</td><td>6.158</td><td class="positive">+0.769</td></tr><tr><td>9.093</td><td>12.042</td><td class="positive">+2.949</td></tr><tr><td>18.121</td><td>18.394</td><td class="positive">+0.273</td></tr></tbody></table></article></div>
+          <div class="classification-section" style="margin-top:52px">
+            <div class="section-heading"><div><p class="eyebrow accent">LOGISTIC REGRESSION · STATION DEMAND</p><h2 style="font-size:30px">Predict if a station is <em>busy.</em></h2></div><p>Binary classification using station, time and connector details.</p></div>
+            <p class="muted" style="margin:0 0 20px">A station-hour is labelled <strong>busy</strong> when two or more charging sessions begin at the same station during that clock hour. The model uses balanced classes to better identify busy periods.</p>
+            <div class="metric-grid three"><article class="metric-card"><p>ROC-AUC score</p><strong>0.668</strong><small>ability to separate busy and not busy</small></article><article class="metric-card"><p>Busy-station recall</p><strong>78.8<b>%</b></strong><small>busy periods correctly found</small></article><article class="metric-card"><p>F1 score</p><strong>0.391</strong><small>balance of busy precision and recall</small></article></div>
+            <div class="split-grid"><article class="panel"><div class="panel-head"><div><p class="eyebrow">CLASSIFICATION PIPELINE</p><h3>Busy / not-busy prediction</h3></div><span class="done-label">Evaluated</span></div><div class="feature-flow"><div><span class="flow-num">01</span><strong>Input features</strong><p>Station · hour · month · weekday · port · plug type</p></div><span>→</span><div><span class="flow-num">02</span><strong>Preparation</strong><p>Median/mode imputation · scaling · one-hot encoding</p></div><span>→</span><div><span class="flow-num">03</span><strong>Classification</strong><p>Probability of a busy station-hour</p></div></div><div class="train-split"><span>Training set <b>207,516 rows</b></span><i style="width:80%"></i><span>Test set <b>51,895 rows</b></span></div></article><article class="panel table-panel"><p class="eyebrow">LOGISTIC REGRESSION</p><h3>Test-set outcomes</h3><table><thead><tr><th>Outcome</th><th>Sessions</th><th>Result</th></tr></thead><tbody><tr><td>Busy → busy</td><td>7,562</td><td class="positive">Correct</td></tr><tr><td>Busy → not busy</td><td>2,034</td><td class="negative">Missed</td></tr><tr><td>Not busy → busy</td><td>21,510</td><td class="negative">Alert</td></tr><tr><td>Not busy → not busy</td><td>20,789</td><td class="positive">Correct</td></tr></tbody></table><p class="muted">Test groups are split by station-hour, keeping each station-hour entirely in either training or testing data.</p></article></div>
+          </div>
+        </section>
+
+        <section class="view" id="gradient">
+          <div class="report-hero"><div><p class="eyebrow accent">STAGE 04 · FROM-SCRATCH OPTIMIZATION</p><h2>Watch the model <em>learn.</em></h2><p>Batch gradient descent learns linear weights for energy prediction by repeatedly reducing squared error.</p></div><div class="model-tag purple-tag">2,000<br /><strong>iterations</strong></div></div>
+          <div class="metric-grid three"><article class="metric-card"><p>Mean absolute error</p><strong>2.599 <b>kWh</b></strong><small>test-set evaluation</small></article><article class="metric-card"><p>Root mean squared error</p><strong>3.608 <b>kWh</b></strong><small>test-set evaluation</small></article><article class="metric-card"><p>R² score</p><strong>0.753</strong><small>75.3% variance explained</small></article></div>
+          <div class="split-grid"><article class="panel estimator"><div class="panel-head"><div><p class="eyebrow">LIVE DEMO</p><h3>Energy estimator</h3></div><span class="done-label">Interactive</span></div><p class="muted">Adjust session inputs to estimate energy using the trained gradient-descent model.</p><label>Charging time <output id="timeValue">90 min</output><input id="timeInput" type="range" min="5" max="360" value="90" /></label><label>Start hour <output id="hourValue">14:00</output><input id="hourInput" type="range" min="0" max="23" value="14" /></label><div class="estimate-result"><span>Estimated energy</span><strong id="estimateValue">15.4 <b>kWh</b></strong><small>based on standardized model inputs</small></div></article><article class="panel"><p class="eyebrow">LEARNED PARAMETERS</p><h3>Model coefficients</h3><div class="coefficient"><span>Charging Time Minutes</span><div><i style="width:92%"></i></div><b>6.286</b></div><div class="coefficient"><span>Hour</span><div><i style="width:28%"></i></div><b>0.337</b></div><div class="coefficient"><span>Intercept</span><div><i style="width:62%"></i></div><b>8.536</b></div><div class="optimizer-note"><span>η</span><p><strong>Learning rate: 0.05</strong><br />Features standardized using training data statistics before optimization.</p></div></article></div>
+        </section>
+      </div>
+      <footer>Built by <strong>Karthikchary</strong> · EV Charging Station Usage Analysis · <span>Complete ✓</span></footer>
+    </main>
+  </div>
+  <div class="toast" id="toast">View updated</div>
+  <script src="script.js"></script>
+</body>
+</html>

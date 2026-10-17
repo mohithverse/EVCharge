@@ -1,0 +1,51 @@
+{
+  "dataset": {
+    "rows": 259411,
+    "train_rows": 207528,
+    "test_rows": 51883,
+    "target": "Energy (kWh)",
+    "features": ["Charging Time Minutes", "Hour", "Port Type", "Plug Type"]
+  },
+  "models": [
+    {
+      "name": "Decision Tree",
+      "status": "complete",
+      "mae": 2.304,
+      "rmse": 3.040,
+      "r2": 0.825,
+      "concept": "A sequence of learned if/else splits."
+    },
+    {
+      "name": "Random Forest",
+      "status": "complete",
+      "mae": 2.301,
+      "rmse": 3.031,
+      "r2": 0.826,
+      "concept": "An average of many trees trained on random samples.",
+      "samples": [
+        {"actual": 37.182, "predicted": 30.676},
+        {"actual": 5.389, "predicted": 5.681},
+        {"actual": 9.093, "predicted": 9.271},
+        {"actual": 6.367, "predicted": 4.909},
+        {"actual": 0.488, "predicted": 0.392}
+      ]
+    },
+    {
+      "name": "AdaBoost",
+      "status": "complete",
+      "mae": 2.415,
+      "rmse": 3.177,
+      "r2": 0.809,
+      "concept": "Sequentially improves predictions by focusing on errors."
+    },
+    {
+      "name": "XGBoost",
+      "status": "dependency-required",
+      "mae": null,
+      "rmse": null,
+      "r2": null,
+      "concept": "Regularized gradient-boosted trees.",
+      "install": "python -m pip install xgboost"
+    }
+  ]
+}
